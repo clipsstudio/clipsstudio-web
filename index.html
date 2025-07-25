@@ -260,9 +260,11 @@
                             <p class="mt-4 text-lg text-gray-400">견적 요청 또는 궁금한 점을 남겨주세요.</p>
                         </div>
                         
-                        <!-- Form Wrapper -->
                         <div id="form-wrapper" class="max-w-2xl mx-auto">
                             <form id="contact-form">
+                                <!-- 이메일 제목을 커스텀하기 위한 숨겨진 필드 -->
+                                <input type="hidden" name="_subject" value="[Clips Studio] 새로운 문의가 도착했습니다!">
+                                
                                 <div class="grid md:grid-cols-2 gap-6 mb-6">
                                     <input type="text" name="name" placeholder="성함" required class="w-full bg-gray-900 p-3 rounded-lg border border-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500">
                                     <input type="email" name="email" placeholder="이메일" required class="w-full bg-gray-900 p-3 rounded-lg border border-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500">
@@ -280,13 +282,11 @@
                             </form>
                         </div>
 
-                        <!-- Success Message -->
                         <div id="success-message" class="hidden text-center p-8 bg-green-900/30 border border-green-700 rounded-lg max-w-2xl mx-auto">
                             <h3 class="text-2xl font-bold text-white">제출 완료!</h3>
                             <p class="text-gray-300 mt-2">소중한 문의 감사합니다. 빠른 시일 내에 회신드리겠습니다.</p>
                         </div>
 
-                        <!-- Error Message -->
                          <div id="error-message" class="hidden text-center p-8 bg-red-900/30 border border-red-700 rounded-lg max-w-2xl mx-auto">
                             <h3 class="text-2xl font-bold text-white">제출 실패</h3>
                             <p class="text-gray-300 mt-2">오류가 발생했습니다. 잠시 후 다시 시도하거나 다른 방법으로 문의해주세요.</p>
@@ -425,11 +425,11 @@
             
             if (form) {
                 form.addEventListener('submit', function(event) {
-                    event.preventDefault(); // 기본 제출 동작(페이지 이동)을 막습니다.
+                    event.preventDefault();
                     
                     const formData = new FormData(form);
                     const submitButton = form.querySelector('button[type="submit"]');
-                    submitButton.disabled = true; // 중복 제출 방지
+                    submitButton.disabled = true;
                     submitButton.textContent = '전송 중...';
 
                     fetch("https://formspree.io/f/manboqdv", {
@@ -440,9 +440,9 @@
                         }
                     }).then(response => {
                         if (response.ok) {
-                            formWrapper.classList.add('hidden'); // 폼 숨기기
-                            successMessage.classList.remove('hidden'); // 성공 메시지 보이기
-                            form.reset(); // 폼 내용 초기화
+                            formWrapper.classList.add('hidden');
+                            successMessage.classList.remove('hidden');
+                            form.reset();
                         } else {
                             response.json().then(data => {
                                 if (Object.hasOwn(data, 'errors')) {
@@ -457,7 +457,7 @@
                         formWrapper.classList.add('hidden');
                         errorMessage.classList.remove('hidden');
                     }).finally(() => {
-                        submitButton.disabled = false; // 버튼 다시 활성화
+                        submitButton.disabled = false;
                         submitButton.textContent = '견적 요청하기';
                     });
                 });

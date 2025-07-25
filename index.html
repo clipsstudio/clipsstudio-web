@@ -16,73 +16,45 @@
         .cta-button:hover { transform: translateY(-2px); box-shadow: 0 4px 20px rgba(59, 130, 246, 0.4); }
         .faq-question { cursor: pointer; }
         .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.5s ease-in-out; }
-        .tab-content, .testimonial-slide { transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out; }
+        .tab-content { transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out; }
         .process-step:not(:last-child):after {
-            content: '';
-            position: absolute;
-            top: 2rem;
-            right: -2rem; /* 데스크탑 화살표 위치 */
-            width: 4rem;
-            height: 2px;
+            content: ''; position: absolute; top: 2rem; right: -2rem;
+            width: 4rem; height: 2px;
             background-image: linear-gradient(to right, #4b5563, #4b5563 50%, transparent 50%, transparent);
-            background-size: 10px 2px;
-            background-repeat: repeat-x;
+            background-size: 10px 2px; background-repeat: repeat-x;
         }
         @media (max-width: 1023px) {
-            .process-step:not(:last-child):after {
-                display: none; /* 태블릿, 모바일에서는 화살표 숨김 */
-            }
+            .process-step:not(:last-child):after { display: none; }
         }
         .gradient-text {
             background: linear-gradient(90deg, #3b82f6, #ffffff);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            text-fill-color: transparent;
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            background-clip: text; text-fill-color: transparent;
         }
         .hero-slide {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            opacity: 0;
-            transition: opacity 1.5s ease-in-out;
-            background-size: cover;
-            background-position: center;
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            opacity: 0; transition: opacity 1.5s ease-in-out;
+            background-size: cover; background-position: center;
         }
-        .hero-slide.active {
-            opacity: 1;
-        }
-        .hero-slide video {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
+        .hero-slide.active { opacity: 1; }
         .slider-dot {
-            width: 12px;
-            height: 12px;
-            background-color: rgba(255, 255, 255, 0.5);
-            border-radius: 50%;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
+            width: 12px; height: 12px; background-color: rgba(255, 255, 255, 0.5);
+            border-radius: 50%; cursor: pointer; transition: background-color 0.3s ease;
         }
-        .slider-dot.active {
-            background-color: white;
-        }
+        .slider-dot.active { background-color: white; }
     </style>
 </head>
 <body class="bg-black text-gray-300 antialiased">
 
     <!-- Header & Navigation -->
-    <header id="header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-black/25 backdrop-blur-lg border-b border-gray-800">
+    <header id="header" class="fixed top-0 left-0 right-0 z-40 transition-all duration-300 bg-black/25 backdrop-blur-lg border-b border-gray-800">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="#hero" class="text-2xl font-bold tracking-tighter gradient-text">Clips Studio</a>
+            <a href="#hero" class="nav-link text-2xl font-bold tracking-tighter gradient-text">Clips Studio</a>
             <nav class="hidden md:flex space-x-8 text-gray-300 font-semibold">
-                <a href="#technology" class="hover:text-white transition-colors">Technology</a>
-                <a href="#process" class="hover:text-white transition-colors">Process</a>
-                <a href="#portfolio" class="hover:text-white transition-colors">Works</a>
-                <a href="#clients" class="hover:text-white transition-colors">Clients</a>
+                <a href="#technology" class="nav-link hover:text-white transition-colors">Technology</a>
+                <a href="#process" class="nav-link hover:text-white transition-colors">Process</a>
+                <a href="#portfolio" class="nav-link hover:text-white transition-colors">Works</a>
+                <a href="#clients" class="nav-link hover:text-white transition-colors">Clients</a>
             </nav>
             <a href="#contact" class="hidden md:inline-block bg-blue-600 text-white px-5 py-2 rounded-lg font-semibold hover:bg-blue-700 cta-button">문의하기</a>
             <button id="mobile-menu-button" class="md:hidden text-2xl text-white">☰</button>
@@ -92,7 +64,7 @@
             <a href="#process" class="nav-link block text-center py-3 hover:bg-gray-800 transition-colors">Process</a>
             <a href="#portfolio" class="nav-link block text-center py-3 hover:bg-gray-800 transition-colors">Works</a>
             <a href="#clients" class="nav-link block text-center py-3 hover:bg-gray-800 transition-colors">Clients</a>
-            <a href="#contact" class="nav-link block text-center py-4 bg-blue-600 text-white font-semibold">문의하기</a>
+            <a href="#contact" class="nav-link block w-full text-center py-4 bg-blue-600 text-white font-semibold">문의하기</a>
         </div>
     </header>
 
@@ -102,7 +74,7 @@
             <div id="hero-slider" class="absolute top-0 left-0 w-full h-full">
                 <div class="hero-slide active" style="background-image: url('https://i.ibb.co/zWDdpYqd/Kakao-Talk-20250715-120030669.jpg');"></div>
                 <div class="hero-slide" style="background-image: url('https://cdn.midjourney.com/22c82e9d-0810-46c0-a6d5-2631f05441c8/0_0.png');"></div>
-                <div class="hero-slide" style="background-image: url('https://cdn.midjourney.com/147005a6-6987-4943-b9a1-1375de9409ad/0_0.png');"></div>
+                <div class="hero-slide" style="background-image: url('https://i.ibb.co/rGX6Z1rB/sucaehan-83416-httpss-mj-run-OXFqn-ACU43-I-A-cinematic-romantic-fa-01c0284e-d7c9-42a1-bf1c-8d44ce631.png');"></div>
             </div>
             <div class="absolute top-0 left-0 w-full h-full bg-black/50"></div>
             <div class="z-10 relative">
@@ -168,13 +140,9 @@
                     </div>
                     <div id="ar-filter-content" class="tab-content hidden">
                          <div class="text-center max-w-5xl mx-auto reveal">
+                            <i class="fas fa-magic text-6xl text-purple-500 mb-6"></i>
                             <h3 class="text-3xl font-bold mb-4 text-white">AR 필터 광고: 자발적 바이럴 확산</h3>
-                            <p class="text-lg text-gray-400 mb-12">AI가 제작한 광고 소스를 SNS에서 누구나 사용할 수 있는 AR 필터로 변환합니다. 인플루언서를 시작으로, 수많은 시청자들이 자신의 콘텐츠에 필터를 적용하고 공유하며 광고는 자연스럽게, 그리고 폭발적으로 확산됩니다.</p>
-                            <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
-                                <div class="aspect-[9/16] bg-gray-800 rounded-2xl overflow-hidden shadow-lg"><video class="w-full h-full object-cover" src="https://static.videezy.com/system/resources/previews/000/004/002/original/Record_Player_-_4K_Stock_footage.mp4" autoplay loop muted playsinline></video></div>
-                                <div class="aspect-[9/16] bg-gray-800 rounded-2xl overflow-hidden shadow-lg"><video class="w-full h-full object-cover" src="https://static.videezy.com/system/resources/previews/000/043/403/original/stock_footage_4k_of_a_young_woman_dancing_in_a_city_street.mp4" autoplay loop muted playsinline></video></div>
-                                <div class="aspect-[9/16] bg-gray-800 rounded-2xl overflow-hidden shadow-lg"><video class="w-full h-full object-cover" src="https://static.videezy.com/system/resources/previews/000/041/143/original/4K_15.mp4" autoplay loop muted playsinline></video></div>
-                            </div>
+                            <p class="text-lg text-gray-400">AI가 제작한 광고 소스를 SNS에서 누구나 사용할 수 있는 AR 필터로 변환합니다. 인플루언서를 시작으로, 수많은 시청자들이 자신의 콘텐츠에 필터를 적용하고 공유하며 광고는 자연스럽게, 그리고 폭발적으로 확산됩니다.</p>
                          </div>
                     </div>
                 </div>
@@ -259,40 +227,34 @@
                             <h2 class="text-3xl md:text-5xl font-bold text-white">Contact</h2>
                             <p class="mt-4 text-lg text-gray-400">견적 요청 또는 궁금한 점을 남겨주세요.</p>
                         </div>
-                        
                         <div id="form-wrapper" class="max-w-2xl mx-auto">
                             <form id="contact-form">
-                                <!-- 이메일 제목을 커스텀하기 위한 숨겨진 필드 -->
                                 <input type="hidden" name="_subject" value="[Clips Studio] 새로운 문의가 도착했습니다!">
-                                
                                 <div class="grid md:grid-cols-2 gap-6 mb-6">
-                                    <input type="text" name="name" placeholder="성함" required class="w-full bg-gray-900 p-3 rounded-lg border border-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500">
-                                    <input type="email" name="email" placeholder="이메일" required class="w-full bg-gray-900 p-3 rounded-lg border border-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                    <input type="text" name="name" placeholder="성함" required class="w-full bg-gray-900 p-3 rounded-lg border border-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 text-white">
+                                    <input type="email" name="email" placeholder="이메일" required class="w-full bg-gray-900 p-3 rounded-lg border border-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 text-white">
                                 </div>
                                 <div class="grid md:grid-cols-2 gap-6 mb-6">
-                                    <input type="text" name="company" placeholder="회사명" class="w-full bg-gray-900 p-3 rounded-lg border border-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500">
-                                    <input type="tel" name="phone" placeholder="연락처" class="w-full bg-gray-900 p-3 rounded-lg border border-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                    <input type="text" name="company" placeholder="회사명" class="w-full bg-gray-900 p-3 rounded-lg border border-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 text-white">
+                                    <input type="tel" name="phone" placeholder="연락처" class="w-full bg-gray-900 p-3 rounded-lg border border-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 text-white">
                                 </div>
                                 <div class="mb-6">
-                                    <textarea name="message" placeholder="프로젝트 내용" required rows="5" class="w-full bg-gray-900 p-3 rounded-lg border border-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+                                    <textarea name="message" placeholder="프로젝트 내용" required rows="5" class="w-full bg-gray-900 p-3 rounded-lg border border-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 text-white"></textarea>
                                 </div>
                                 <div class="text-center">
                                     <button type="submit" class="w-full md:w-auto bg-blue-600 text-white px-12 py-4 rounded-lg font-bold text-lg hover:bg-blue-700 cta-button">견적 요청하기</button>
                                 </div>
                             </form>
                         </div>
-
                         <div id="success-message" class="hidden text-center p-8 bg-green-900/30 border border-green-700 rounded-lg max-w-2xl mx-auto">
                             <h3 class="text-2xl font-bold text-white">제출 완료!</h3>
                             <p class="text-gray-300 mt-2">소중한 문의 감사합니다. 빠른 시일 내에 회신드리겠습니다.</p>
                         </div>
-
-                         <div id="error-message" class="hidden text-center p-8 bg-red-900/30 border border-red-700 rounded-lg max-w-2xl mx-auto">
+                        <div id="error-message" class="hidden text-center p-8 bg-red-900/30 border border-red-700 rounded-lg max-w-2xl mx-auto">
                             <h3 class="text-2xl font-bold text-white">제출 실패</h3>
                             <p class="text-gray-300 mt-2">오류가 발생했습니다. 잠시 후 다시 시도하거나 다른 방법으로 문의해주세요.</p>
                         </div>
                     </div>
-                    <!-- FAQ -->
                     <div class="reveal">
                         <div class="text-center mb-12"><h3 class="text-3xl md:text-4xl font-bold text-white">자주 묻는 질문</h3></div>
                         <div id="faq-container" class="space-y-4 max-w-2xl mx-auto">
@@ -320,24 +282,28 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            // --- General Nav & Scroll Logic ---
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenuButton.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+
+            document.querySelectorAll('.nav-link').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    if(targetElement) {
+                        targetElement.scrollIntoView({ behavior: 'smooth' });
+                    }
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                    }
+                });
+            });
+            
             const header = document.getElementById('header');
             window.addEventListener('scroll', () => {
                 if (window.scrollY > 50) header.classList.add('shadow-md');
                 else header.classList.remove('shadow-md');
-            });
-
-            const mobileMenuButton = document.getElementById('mobile-menu-button');
-            const mobileMenu = document.getElementById('mobile-menu');
-            const navLinks = document.querySelectorAll('.nav-link');
-            mobileMenuButton.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
-            navLinks.forEach(link => link.addEventListener('click', () => mobileMenu.classList.add('hidden')));
-
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
-                });
             });
 
             const revealElements = document.querySelectorAll('.reveal');
@@ -348,7 +314,6 @@
             }, { threshold: 0.1 });
             revealElements.forEach(el => observer.observe(el));
 
-            // --- Hero Slider Logic ---
             const slides = document.querySelectorAll('.hero-slide');
             const dotsContainer = document.getElementById('slider-dots');
             let currentSlide = 0;
@@ -379,7 +344,6 @@
             goToSlide(0);
             resetInterval();
 
-            // --- Technology Tab Logic ---
             const tabButtons = document.querySelectorAll('.tab-btn');
             const tabContents = document.querySelectorAll('.tab-content');
             tabButtons.forEach(button => {
@@ -397,7 +361,6 @@
                 });
             });
 
-            // --- FAQ Accordion Logic ---
             const faqContainer = document.getElementById('faq-container');
             if(faqContainer) {
                 faqContainer.addEventListener('click', (e) => {
@@ -417,7 +380,6 @@
                 });
             }
 
-            // --- AJAX Form Submission Logic ---
             const form = document.getElementById('contact-form');
             const formWrapper = document.getElementById('form-wrapper');
             const successMessage = document.getElementById('success-message');
@@ -435,23 +397,14 @@
                     fetch("https://formspree.io/f/manboqdv", {
                         method: 'POST',
                         body: formData,
-                        headers: {
-                            'Accept': 'application/json'
-                        }
+                        headers: { 'Accept': 'application/json' }
                     }).then(response => {
                         if (response.ok) {
                             formWrapper.classList.add('hidden');
                             successMessage.classList.remove('hidden');
-                            form.reset();
                         } else {
-                            response.json().then(data => {
-                                if (Object.hasOwn(data, 'errors')) {
-                                    alert(data["errors"].map(error => error["message"]).join(", "));
-                                } else {
-                                    formWrapper.classList.add('hidden');
-                                    errorMessage.classList.remove('hidden');
-                                }
-                            })
+                            formWrapper.classList.add('hidden');
+                            errorMessage.classList.remove('hidden');
                         }
                     }).catch(error => {
                         formWrapper.classList.add('hidden');

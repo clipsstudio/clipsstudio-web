@@ -40,7 +40,6 @@
             background-clip: text;
             text-fill-color: transparent;
         }
-        /* Hero Slider Styles */
         .hero-slide {
             position: absolute;
             top: 0;
@@ -98,17 +97,14 @@
     </header>
 
     <main>
-        <!-- 1. Hero Section with Slider Background -->
+        <!-- Hero Section -->
         <section id="hero" class="h-screen flex items-center justify-center text-center px-4 relative overflow-hidden">
-            <!-- Slider Container -->
             <div id="hero-slider" class="absolute top-0 left-0 w-full h-full">
                 <div class="hero-slide active" style="background-image: url('https://i.ibb.co/zWDdpYqd/Kakao-Talk-20250715-120030669.jpg');"></div>
                 <div class="hero-slide" style="background-image: url('https://cdn.midjourney.com/22c82e9d-0810-46c0-a6d5-2631f05441c8/0_0.png');"></div>
                 <div class="hero-slide" style="background-image: url('https://i.ibb.co/rGX6Z1rB/sucaehan-83416-httpss-mj-run-OXFqn-ACU43-I-A-cinematic-romantic-fa-01c0284e-d7c9-42a1-bf1c-8d44ce631.png');"></div>
             </div>
-            <!-- Overlay for text readability -->
             <div class="absolute top-0 left-0 w-full h-full bg-black/50"></div>
-            
             <div class="z-10 relative">
                 <h1 class="text-4xl md:text-6xl font-black mb-4 leading-tight reveal text-white">
                     <span class="gradient-text">AI가 만드는 광고,</span><br>결과로 증명합니다.
@@ -120,7 +116,6 @@
                     <a href="#contact" class="bg-blue-600 text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-blue-700 cta-button">프로젝트 문의</a>
                 </div>
             </div>
-             <!-- Slider Dots -->
             <div id="slider-dots" class="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex space-x-3"></div>
         </section>
 
@@ -152,7 +147,7 @@
             </div>
         </section>
 
-        <!-- 2. Our Technology Section -->
+        <!-- Technology Section -->
         <section id="technology" class="py-20 md:py-32 bg-gray-900">
             <div class="container mx-auto px-6">
                 <div class="text-center mb-16">
@@ -186,7 +181,7 @@
             </div>
         </section>
 
-        <!-- AI Ad Creation Process Section -->
+        <!-- Process Sections -->
         <section id="process" class="py-20 md:py-32 bg-black">
             <div class="container mx-auto px-6">
                 <div class="text-center mb-16">
@@ -202,7 +197,6 @@
             </div>
         </section>
         
-        <!-- AR Filter Ad Process Section -->
         <section id="ar-process" class="pb-20 md:pb-32 bg-black">
             <div class="container mx-auto px-6">
                 <div class="text-center mb-16">
@@ -226,87 +220,81 @@
                     <p class="mt-4 text-lg text-gray-400 max-w-2xl mx-auto reveal">AI 기술로 완성된 프로젝트 예시를 확인해보세요.</p>
                 </div>
                 <div class="grid grid-cols-1 sm:grid-cols-3 gap-8 max-w-5xl mx-auto reveal">
-                    <div class="aspect-w-16 aspect-h-9 rounded-lg overflow-hidden shadow-lg">
-                        <video class="w-full h-full object-cover" src="https://cdn.midjourney.com/video/06bebd62-1ca9-4164-a08f-0b9e461dc168/2.mp4" autoplay loop muted playsinline></video>
-                    </div>
-                    <div class="aspect-w-16 aspect-h-9 rounded-lg overflow-hidden shadow-lg">
-                        <video class="w-full h-full object-cover" src="https://cdn.midjourney.com/video/fd96cf19-17e9-4db4-be8c-d2fd82303202/1.mp4" autoplay loop muted playsinline></video>
-                    </div>
-                    <div class="aspect-w-16 aspect-h-9 rounded-lg overflow-hidden shadow-lg">
-                        <video class="w-full h-full object-cover" src="https://cdn.midjourney.com/video/538b6539-0abc-424f-8255-6349285efa33/2.mp4" autoplay loop muted playsinline></video>
-                    </div>
+                    <div class="aspect-w-16 aspect-h-9 rounded-lg overflow-hidden shadow-lg"><video class="w-full h-full object-cover" src="https://cdn.midjourney.com/video/06bebd62-1ca9-4164-a08f-0b9e461dc168/2.mp4" autoplay loop muted playsinline></video></div>
+                    <div class="aspect-w-16 aspect-h-9 rounded-lg overflow-hidden shadow-lg"><video class="w-full h-full object-cover" src="https://cdn.midjourney.com/video/fd96cf19-17e9-4db4-be8c-d2fd82303202/1.mp4" autoplay loop muted playsinline></video></div>
+                    <div class="aspect-w-16 aspect-h-9 rounded-lg overflow-hidden shadow-lg"><video class="w-full h-full object-cover" src="https://cdn.midjourney.com/video/538b6539-0abc-424f-8255-6349285efa33/2.mp4" autoplay loop muted playsinline></video></div>
                 </div>
             </div>
         </section>
 
-        <!-- 5. Clients & Testimonials Section -->
+        <!-- Clients & Testimonials Section -->
         <section id="clients" class="py-20 md:py-32 bg-black">
             <div class="container mx-auto px-6">
                 <div class="text-center mb-16">
                     <h2 class="text-3xl md:text-4xl font-bold reveal gradient-text">Testimonials</h2>
                 </div>
                 <div class="max-w-4xl mx-auto space-y-16 reveal">
-                    <!-- Testimonial 1 -->
                     <div class="flex flex-col sm:flex-row items-center gap-8">
                         <img src="https://placehold.co/150x150/1f2937/d1d5db?text=CEO" alt="스타트업 대표" class="w-24 h-24 rounded-full flex-shrink-0">
-                        <div class="bg-gray-900 border border-gray-800 p-6 rounded-lg relative w-full">
-                            <p class="text-gray-300">"회사가 아직 작아 필요한 작업마다 외주를 맡기곤 했는데, Clips Studio 덕분에 작업의 일관성을 유지하며 통합 관리가 가능해졌습니다. 광고 캠페인과 콘텐츠 운영이 더 체계적이고 효과적으로 진행되었어요."</p>
-                            <p class="text-right mt-4 font-bold text-white">- 스타트업 대표 (남, 32세)</p>
-                        </div>
+                        <div class="bg-gray-900 border border-gray-800 p-6 rounded-lg relative w-full"><p class="text-gray-300">"회사가 아직 작아 필요한 작업마다 외주를 맡기곤 했는데, Clips Studio 덕분에 작업의 일관성을 유지하며 통합 관리가 가능해졌습니다. 광고 캠페인과 콘텐츠 운영이 더 체계적이고 효과적으로 진행되었어요."</p><p class="text-right mt-4 font-bold text-white">- 스타트업 대표 (남, 32세)</p></div>
                     </div>
-                    <!-- Testimonial 2 -->
                     <div class="flex flex-col sm:flex-row-reverse items-center gap-8">
                          <img src="https://placehold.co/150x150/1f2937/d1d5db?text=SNS" alt="SNS 운영 담당자" class="w-24 h-24 rounded-full flex-shrink-0">
-                        <div class="bg-gray-900 border border-gray-800 p-6 rounded-lg relative w-full">
-                            <p class="text-gray-300">"AI 콘텐츠 제작 서비스를 통해 필요한 콘텐츠를 빠르게 얻을 수 있어 SNS 운영이 훨씬 간편해졌고, 팔로워와의 소통도 원활하게 이루어졌습니다."</p>
-                            <p class="text-right mt-4 font-bold text-white">- SNS 운영 담당자 (여, 29세)</p>
-                        </div>
+                        <div class="bg-gray-900 border border-gray-800 p-6 rounded-lg relative w-full"><p class="text-gray-300">"AI 콘텐츠 제작 서비스를 통해 필요한 콘텐츠를 빠르게 얻을 수 있어 SNS 운영이 훨씬 간편해졌고, 팔로워와의 소통도 원활하게 이루어졌습니다."</p><p class="text-right mt-4 font-bold text-white">- SNS 운영 담당자 (여, 29세)</p></div>
                     </div>
-                    <!-- Testimonial 3 -->
                      <div class="flex flex-col sm:flex-row items-center gap-8">
                         <img src="https://placehold.co/150x150/1f2937/d1d5db?text=CMO" alt="마케터" class="w-24 h-24 rounded-full flex-shrink-0">
-                        <div class="bg-gray-900 border border-gray-800 p-6 rounded-lg relative w-full">
-                            <p class="text-gray-300">"매번 광고 콘텐츠 제작에 시간이 너무 많이 들었는데, AI를 이용한 서비스 덕분에 그 시간이 절반으로 줄었어요. 광고 캠페인의 효율이 극대화되었고, 전반적인 ROI가 증가하는 결과를 얻었습니다. 무엇보다 변화하는 트렌드에 맞춰 즉각적으로 콘텐츠를 수정할 수 있어서 좋았어요."</p>
-                            <p class="text-right mt-4 font-bold text-white">- 마케터 (남, 40세)</p>
-                        </div>
+                        <div class="bg-gray-900 border border-gray-800 p-6 rounded-lg relative w-full"><p class="text-gray-300">"매번 광고 콘텐츠 제작에 시간이 너무 많이 들었는데, AI를 이용한 서비스 덕분에 그 시간이 절반으로 줄었어요. 광고 캠페인의 효율이 극대화되었고, 전반적인 ROI가 증가하는 결과를 얻었습니다. 무엇보다 변화하는 트렌드에 맞춰 즉각적으로 콘텐츠를 수정할 수 있어서 좋았어요."</p><p class="text-right mt-4 font-bold text-white">- 마케터 (남, 40세)</p></div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- 6. Contact & FAQ Section -->
+        <!-- Contact & FAQ Section -->
         <section id="contact" class="py-20 md:py-32 bg-black">
             <div class="container mx-auto px-6">
                 <div class="max-w-4xl mx-auto">
-                    <!-- Quote Request Form -->
                     <div class="reveal mb-24">
                         <div class="text-center mb-12">
                             <h2 class="text-3xl md:text-5xl font-bold text-white">Contact</h2>
                             <p class="mt-4 text-lg text-gray-400">견적 요청 또는 궁금한 점을 남겨주세요.</p>
                         </div>
-                        <!-- Formspree Form -->
-                        <form action="https://formspree.io/f/manboqdv" method="POST" class="max-w-2xl mx-auto">
-                            <div class="grid md:grid-cols-2 gap-6 mb-6">
-                                <input type="text" name="name" placeholder="성함" required class="w-full bg-gray-900 p-3 rounded-lg border border-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500">
-                                <input type="email" name="email" placeholder="이메일" required class="w-full bg-gray-900 p-3 rounded-lg border border-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500">
-                            </div>
-                            <div class="grid md:grid-cols-2 gap-6 mb-6">
-                                <input type="text" name="company" placeholder="회사명" class="w-full bg-gray-900 p-3 rounded-lg border border-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500">
-                                <input type="tel" name="phone" placeholder="연락처" class="w-full bg-gray-900 p-3 rounded-lg border border-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500">
-                            </div>
-                            <div class="mb-6">
-                                <textarea name="message" placeholder="프로젝트 내용" required rows="5" class="w-full bg-gray-900 p-3 rounded-lg border border-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
-                            </div>
-                            <div class="text-center">
-                                <button type="submit" class="w-full md:w-auto bg-blue-600 text-white px-12 py-4 rounded-lg font-bold text-lg hover:bg-blue-700 cta-button">견적 요청하기</button>
-                            </div>
-                        </form>
+                        
+                        <!-- Form Wrapper -->
+                        <div id="form-wrapper" class="max-w-2xl mx-auto">
+                            <form id="contact-form">
+                                <div class="grid md:grid-cols-2 gap-6 mb-6">
+                                    <input type="text" name="name" placeholder="성함" required class="w-full bg-gray-900 p-3 rounded-lg border border-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                    <input type="email" name="email" placeholder="이메일" required class="w-full bg-gray-900 p-3 rounded-lg border border-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                </div>
+                                <div class="grid md:grid-cols-2 gap-6 mb-6">
+                                    <input type="text" name="company" placeholder="회사명" class="w-full bg-gray-900 p-3 rounded-lg border border-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                    <input type="tel" name="phone" placeholder="연락처" class="w-full bg-gray-900 p-3 rounded-lg border border-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                </div>
+                                <div class="mb-6">
+                                    <textarea name="message" placeholder="프로젝트 내용" required rows="5" class="w-full bg-gray-900 p-3 rounded-lg border border-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+                                </div>
+                                <div class="text-center">
+                                    <button type="submit" class="w-full md:w-auto bg-blue-600 text-white px-12 py-4 rounded-lg font-bold text-lg hover:bg-blue-700 cta-button">견적 요청하기</button>
+                                </div>
+                            </form>
+                        </div>
+
+                        <!-- Success Message -->
+                        <div id="success-message" class="hidden text-center p-8 bg-green-900/30 border border-green-700 rounded-lg max-w-2xl mx-auto">
+                            <h3 class="text-2xl font-bold text-white">제출 완료!</h3>
+                            <p class="text-gray-300 mt-2">소중한 문의 감사합니다. 빠른 시일 내에 회신드리겠습니다.</p>
+                        </div>
+
+                        <!-- Error Message -->
+                         <div id="error-message" class="hidden text-center p-8 bg-red-900/30 border border-red-700 rounded-lg max-w-2xl mx-auto">
+                            <h3 class="text-2xl font-bold text-white">제출 실패</h3>
+                            <p class="text-gray-300 mt-2">오류가 발생했습니다. 잠시 후 다시 시도하거나 다른 방법으로 문의해주세요.</p>
+                        </div>
                     </div>
                     <!-- FAQ -->
                     <div class="reveal">
-                        <div class="text-center mb-12">
-                            <h3 class="text-3xl md:text-4xl font-bold text-white">자주 묻는 질문</h3>
-                        </div>
+                        <div class="text-center mb-12"><h3 class="text-3xl md:text-4xl font-bold text-white">자주 묻는 질문</h3></div>
                         <div id="faq-container" class="space-y-4 max-w-2xl mx-auto">
                             <div class="border-b border-gray-800 pb-4"><div class="faq-question flex justify-between items-center"><h3 class="font-semibold text-lg text-gray-200">AI가 광고를 만든다니, 정확히 어떤 원리인가요?</h3><i class="fas fa-chevron-down transition-transform text-gray-400"></i></div><div class="faq-answer pt-4 text-gray-400"><p>저희 'AI 에이전트'는 하나의 AI가 아닌, 광고 기획, 카피, 이미지, 영상, 사운드 등 각 분야에 특화된 여러 AI를 통합한 시스템입니다. 클라이언트의 요구사항을 입력하면, 각 AI가 유기적으로 작동하여 최적의 광고 결과물을 자동으로 생성합니다. 7,000개 이상의 데이터를 학습한 딥러닝 모델이 퀄리티를 보장합니다.</p></div></div>
                             <div class="border-b border-gray-800 pb-4"><div class="faq-question flex justify-between items-center"><h3 class="font-semibold text-lg text-gray-200">제작 비용과 기간이 정말 90%나 단축되나요?</h3><i class="fas fa-chevron-down transition-transform text-gray-400"></i></div><div class="faq-answer pt-4 text-gray-400"><p>네, 가능합니다. 촬영 장비, 모델, 스튜디오 렌탈 등 물리적인 촬영 과정이 필요 없으며, 기획과 편집 과정 대부분이 자동화되기 때문입니다. 이를 통해 평균 60~90일, 수천만 원이 소요되던 광고를 단 7일, 300만 원대의 비용으로 제작할 수 있습니다.</p></div></div>
@@ -330,12 +318,9 @@
         </div>
     </footer>
 
-    <!-- Instagram Embed Script -->
-    <script async src="//www.instagram.com/embed.js"></script>
-
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            // --- Header & Nav Logic ---
+            // --- General Nav & Scroll Logic ---
             const header = document.getElementById('header');
             window.addEventListener('scroll', () => {
                 if (window.scrollY > 50) header.classList.add('shadow-md');
@@ -355,7 +340,6 @@
                 });
             });
 
-            // --- Reveal on Scroll ---
             const revealElements = document.querySelectorAll('.reveal');
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
@@ -364,21 +348,18 @@
             }, { threshold: 0.1 });
             revealElements.forEach(el => observer.observe(el));
 
-            // --- Hero Slider ---
+            // --- Hero Slider Logic ---
             const slides = document.querySelectorAll('.hero-slide');
             const dotsContainer = document.getElementById('slider-dots');
             let currentSlide = 0;
             let slideInterval;
 
             function createDots() {
-                if (!dotsContainer) return;
+                if (!dotsContainer || slides.length === 0) return;
                 slides.forEach((_, i) => {
                     const dot = document.createElement('div');
                     dot.classList.add('slider-dot');
-                    dot.addEventListener('click', () => {
-                        goToSlide(i);
-                        resetInterval();
-                    });
+                    dot.addEventListener('click', () => { goToSlide(i); resetInterval(); });
                     dotsContainer.appendChild(dot);
                 });
             }
@@ -392,44 +373,31 @@
                 if (dotsContainer) dotsContainer.children[currentSlide].classList.add('active');
             }
 
-            function nextSlide() {
-                goToSlide(currentSlide + 1);
-            }
-
-            function resetInterval() {
-                clearInterval(slideInterval);
-                slideInterval = setInterval(nextSlide, 5000); // Change slide every 5 seconds
-            }
-
+            function nextSlide() { goToSlide(currentSlide + 1); }
+            function resetInterval() { clearInterval(slideInterval); slideInterval = setInterval(nextSlide, 5000); }
             createDots();
             goToSlide(0);
             resetInterval();
 
-            // --- Technology Tab ---
+            // --- Technology Tab Logic ---
             const tabButtons = document.querySelectorAll('.tab-btn');
             const tabContents = document.querySelectorAll('.tab-content');
             tabButtons.forEach(button => {
                 button.addEventListener('click', () => {
                     const tabId = button.dataset.tab;
-
                     tabButtons.forEach(btn => {
                         btn.classList.remove('text-white', 'border-blue-500');
                         btn.classList.add('text-gray-500', 'border-transparent');
                     });
                     button.classList.add('text-white', 'border-blue-500');
                     button.classList.remove('text-gray-500', 'border-transparent');
-
                     tabContents.forEach(content => {
-                        if (content.id === `${tabId}-content`) {
-                            content.classList.remove('hidden');
-                        } else {
-                            content.classList.add('hidden');
-                        }
+                        content.classList.toggle('hidden', content.id !== `${tabId}-content`);
                     });
                 });
             });
 
-            // --- FAQ Accordion ---
+            // --- FAQ Accordion Logic ---
             const faqContainer = document.getElementById('faq-container');
             if(faqContainer) {
                 faqContainer.addEventListener('click', (e) => {
@@ -438,16 +406,60 @@
                     const answer = question.nextElementSibling;
                     const icon = question.querySelector('i');
                     const isOpening = !answer.style.maxHeight;
-                    
                     faqContainer.querySelectorAll('.faq-answer').forEach(ans => {
                         ans.style.maxHeight = null;
                         ans.previousElementSibling.querySelector('i').classList.remove('rotate-180');
                     });
-
                     if (isOpening) {
                         answer.style.maxHeight = answer.scrollHeight + "px";
                         icon.classList.add('rotate-180');
                     }
+                });
+            }
+
+            // --- AJAX Form Submission Logic ---
+            const form = document.getElementById('contact-form');
+            const formWrapper = document.getElementById('form-wrapper');
+            const successMessage = document.getElementById('success-message');
+            const errorMessage = document.getElementById('error-message');
+            
+            if (form) {
+                form.addEventListener('submit', function(event) {
+                    event.preventDefault(); // 기본 제출 동작(페이지 이동)을 막습니다.
+                    
+                    const formData = new FormData(form);
+                    const submitButton = form.querySelector('button[type="submit"]');
+                    submitButton.disabled = true; // 중복 제출 방지
+                    submitButton.textContent = '전송 중...';
+
+                    fetch("https://formspree.io/f/manboqdv", {
+                        method: 'POST',
+                        body: formData,
+                        headers: {
+                            'Accept': 'application/json'
+                        }
+                    }).then(response => {
+                        if (response.ok) {
+                            formWrapper.classList.add('hidden'); // 폼 숨기기
+                            successMessage.classList.remove('hidden'); // 성공 메시지 보이기
+                            form.reset(); // 폼 내용 초기화
+                        } else {
+                            response.json().then(data => {
+                                if (Object.hasOwn(data, 'errors')) {
+                                    alert(data["errors"].map(error => error["message"]).join(", "));
+                                } else {
+                                    formWrapper.classList.add('hidden');
+                                    errorMessage.classList.remove('hidden');
+                                }
+                            })
+                        }
+                    }).catch(error => {
+                        formWrapper.classList.add('hidden');
+                        errorMessage.classList.remove('hidden');
+                    }).finally(() => {
+                        submitButton.disabled = false; // 버튼 다시 활성화
+                        submitButton.textContent = '견적 요청하기';
+                    });
                 });
             }
         });

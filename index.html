@@ -42,6 +42,7 @@
             border-radius: 50%; cursor: pointer; transition: background-color 0.3s ease;
         }
         .slider-dot.active { background-color: white; }
+        .modal { transition: opacity 0.3s ease-in-out; }
     </style>
 </head>
 <body class="bg-black text-gray-300 antialiased">
@@ -56,7 +57,7 @@
                 <a href="#portfolio" class="nav-link hover:text-white transition-colors">Works</a>
                 <a href="#clients" class="nav-link hover:text-white transition-colors">Clients</a>
             </nav>
-            <a href="#contact" class="hidden md:inline-block bg-blue-600 text-white px-5 py-2 rounded-lg font-semibold hover:bg-blue-700 cta-button">문의하기</a>
+            <button id="open-modal-header" class="hidden md:inline-block bg-blue-600 text-white px-5 py-2 rounded-lg font-semibold hover:bg-blue-700 cta-button">문의하기</button>
             <button id="mobile-menu-button" class="md:hidden text-2xl text-white">☰</button>
         </div>
         <div id="mobile-menu" class="hidden md:hidden bg-black/95">
@@ -64,7 +65,7 @@
             <a href="#process" class="nav-link block text-center py-3 hover:bg-gray-800 transition-colors">Process</a>
             <a href="#portfolio" class="nav-link block text-center py-3 hover:bg-gray-800 transition-colors">Works</a>
             <a href="#clients" class="nav-link block text-center py-3 hover:bg-gray-800 transition-colors">Clients</a>
-            <a href="#contact" class="nav-link block w-full text-center py-4 bg-blue-600 text-white font-semibold">문의하기</a>
+            <button id="open-modal-mobile" class="block w-full text-center py-4 bg-blue-600 text-white font-semibold">문의하기</button>
         </div>
     </header>
 
@@ -85,7 +86,7 @@
                     Clips Studio는 AI 기술로 제작 비용과 기간을 90% 단축하고, 광고 효과는 극대화합니다.
                 </p>
                 <div class="mt-8 flex justify-center reveal" style="transition-delay: 0.4s;">
-                    <a href="#contact" class="bg-blue-600 text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-blue-700 cta-button">프로젝트 문의</a>
+                    <button id="open-modal-hero" class="bg-blue-600 text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-blue-700 cta-button">프로젝트 문의</button>
                 </div>
             </div>
             <div id="slider-dots" class="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex space-x-3"></div>
@@ -218,43 +219,10 @@
             </div>
         </section>
 
-        <!-- Contact & FAQ Section -->
-        <section id="contact" class="py-20 md:py-32 bg-black">
+        <!-- FAQ Section -->
+        <section id="faq" class="py-20 md:py-32 bg-black">
             <div class="container mx-auto px-6">
                 <div class="max-w-4xl mx-auto">
-                    <div class="reveal mb-24">
-                        <div class="text-center mb-12">
-                            <h2 class="text-3xl md:text-5xl font-bold text-white">Contact</h2>
-                            <p class="mt-4 text-lg text-gray-400">견적 요청 또는 궁금한 점을 남겨주세요.</p>
-                        </div>
-                        <div id="form-wrapper" class="max-w-2xl mx-auto">
-                            <form id="contact-form">
-                                <input type="hidden" name="_subject" value="[Clips Studio] 새로운 문의가 도착했습니다!">
-                                <div class="grid md:grid-cols-2 gap-6 mb-6">
-                                    <input type="text" name="name" placeholder="성함" required class="w-full bg-gray-900 p-3 rounded-lg border border-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 text-white">
-                                    <input type="email" name="email" placeholder="이메일" required class="w-full bg-gray-900 p-3 rounded-lg border border-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 text-white">
-                                </div>
-                                <div class="grid md:grid-cols-2 gap-6 mb-6">
-                                    <input type="text" name="company" placeholder="회사명" class="w-full bg-gray-900 p-3 rounded-lg border border-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 text-white">
-                                    <input type="tel" name="phone" placeholder="연락처" class="w-full bg-gray-900 p-3 rounded-lg border border-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 text-white">
-                                </div>
-                                <div class="mb-6">
-                                    <textarea name="message" placeholder="프로젝트 내용" required rows="5" class="w-full bg-gray-900 p-3 rounded-lg border border-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 text-white"></textarea>
-                                </div>
-                                <div class="text-center">
-                                    <button type="submit" class="w-full md:w-auto bg-blue-600 text-white px-12 py-4 rounded-lg font-bold text-lg hover:bg-blue-700 cta-button">견적 요청하기</button>
-                                </div>
-                            </form>
-                        </div>
-                        <div id="success-message" class="hidden text-center p-8 bg-green-900/30 border border-green-700 rounded-lg max-w-2xl mx-auto">
-                            <h3 class="text-2xl font-bold text-white">제출 완료!</h3>
-                            <p class="text-gray-300 mt-2">소중한 문의 감사합니다. 빠른 시일 내에 회신드리겠습니다.</p>
-                        </div>
-                        <div id="error-message" class="hidden text-center p-8 bg-red-900/30 border border-red-700 rounded-lg max-w-2xl mx-auto">
-                            <h3 class="text-2xl font-bold text-white">제출 실패</h3>
-                            <p class="text-gray-300 mt-2">오류가 발생했습니다. 잠시 후 다시 시도하거나 다른 방법으로 문의해주세요.</p>
-                        </div>
-                    </div>
                     <div class="reveal">
                         <div class="text-center mb-12"><h3 class="text-3xl md:text-4xl font-bold text-white">자주 묻는 질문</h3></div>
                         <div id="faq-container" class="space-y-4 max-w-2xl mx-auto">
@@ -280,13 +248,53 @@
         </div>
     </footer>
 
+    <!-- Contact Modal -->
+    <div id="contact-modal" class="modal fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-75 opacity-0 pointer-events-none">
+        <div id="modal-content" class="bg-gray-900 rounded-lg shadow-xl p-8 max-w-2xl w-full relative m-4 transform scale-95 transition-transform duration-300">
+            <button id="close-modal-btn" class="absolute top-4 right-4 text-gray-500 hover:text-white text-3xl leading-none">&times;</button>
+            <div id="modal-form-wrapper">
+                <div class="text-center mb-8">
+                    <h2 class="text-3xl font-bold text-white">문의하기</h2>
+                    <p class="mt-2 text-gray-400">프로젝트에 대해 알려주시면, 빠르게 회신드리겠습니다.</p>
+                </div>
+                <form id="contact-form">
+                    <input type="hidden" name="_subject" value="[Clips Studio] 새로운 문의가 도착했습니다!">
+                    <div class="grid md:grid-cols-2 gap-6 mb-6">
+                        <input type="text" name="name" placeholder="성함" required class="w-full bg-gray-800 p-3 rounded-lg border border-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 text-white">
+                        <input type="email" name="email" placeholder="이메일" required class="w-full bg-gray-800 p-3 rounded-lg border border-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 text-white">
+                    </div>
+                    <div class="grid md:grid-cols-2 gap-6 mb-6">
+                        <input type="text" name="company" placeholder="회사명" class="w-full bg-gray-800 p-3 rounded-lg border border-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 text-white">
+                        <input type="tel" name="phone" placeholder="연락처" class="w-full bg-gray-800 p-3 rounded-lg border border-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 text-white">
+                    </div>
+                    <div class="mb-6">
+                        <textarea name="message" placeholder="프로젝트 내용" required rows="5" class="w-full bg-gray-800 p-3 rounded-lg border border-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 text-white"></textarea>
+                    </div>
+                    <div class="text-center">
+                        <button type="submit" class="w-full md:w-auto bg-blue-600 text-white px-12 py-4 rounded-lg font-bold text-lg hover:bg-blue-700 cta-button">견적 요청하기</button>
+                    </div>
+                </form>
+            </div>
+            <div id="modal-success-message" class="hidden text-center p-8">
+                <h3 class="text-2xl font-bold text-white">제출 완료!</h3>
+                <p class="text-gray-300 mt-2">소중한 문의 감사합니다. 빠른 시일 내에 회신드리겠습니다.</p>
+                <button id="close-modal-success-btn" class="mt-6 bg-blue-600 text-white px-6 py-2 rounded-lg font-semibold hover:bg-blue-700">닫기</button>
+            </div>
+            <div id="modal-error-message" class="hidden text-center p-8">
+                <h3 class="text-2xl font-bold text-white">제출 실패</h3>
+                <p class="text-gray-300 mt-2">오류가 발생했습니다. 잠시 후 다시 시도하거나 다른 방법으로 문의해주세요.</p>
+                 <button id="close-modal-error-btn" class="mt-6 bg-gray-600 text-white px-6 py-2 rounded-lg font-semibold hover:bg-gray-700">닫기</button>
+            </div>
+        </div>
+    </div>
+
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             const mobileMenuButton = document.getElementById('mobile-menu-button');
             const mobileMenu = document.getElementById('mobile-menu');
             mobileMenuButton.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
 
-            document.querySelectorAll('.nav-link').forEach(anchor => {
+            document.querySelectorAll('a.nav-link').forEach(anchor => {
                 anchor.addEventListener('click', function (e) {
                     e.preventDefault();
                     const targetId = this.getAttribute('href');
@@ -299,6 +307,84 @@
                     }
                 });
             });
+
+            const contactModal = document.getElementById('contact-modal');
+            const modalContent = document.getElementById('modal-content');
+            const openModalBtns = ['open-modal-header', 'open-modal-mobile', 'open-modal-hero'];
+            const closeModalBtns = ['close-modal-btn', 'close-modal-success-btn', 'close-modal-error-btn'];
+            const modalFormWrapper = document.getElementById('modal-form-wrapper');
+            const modalSuccessMessage = document.getElementById('modal-success-message');
+            const modalErrorMessage = document.getElementById('modal-error-message');
+            const form = document.getElementById('contact-form');
+
+            function openModal() {
+                form.reset();
+                modalFormWrapper.classList.remove('hidden');
+                modalSuccessMessage.classList.add('hidden');
+                modalErrorMessage.classList.add('hidden');
+                contactModal.classList.remove('opacity-0', 'pointer-events-none');
+                modalContent.classList.remove('scale-95');
+            }
+
+            function closeModal() {
+                contactModal.classList.add('opacity-0');
+                setTimeout(() => {
+                    contactModal.classList.add('pointer-events-none');
+                }, 300);
+                modalContent.classList.add('scale-95');
+            }
+
+            openModalBtns.forEach(id => {
+                const btn = document.getElementById(id);
+                if(btn) btn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                    }
+                    openModal();
+                });
+            });
+
+            closeModalBtns.forEach(id => {
+                const btn = document.getElementById(id);
+                if(btn) btn.addEventListener('click', closeModal);
+            });
+
+            contactModal.addEventListener('click', (e) => {
+                if (e.target === contactModal) {
+                    closeModal();
+                }
+            });
+
+            if (form) {
+                form.addEventListener('submit', function(event) {
+                    event.preventDefault();
+                    const formData = new FormData(form);
+                    const submitButton = form.querySelector('button[type="submit"]');
+                    submitButton.disabled = true;
+                    submitButton.textContent = '전송 중...';
+
+                    fetch("https://formspree.io/f/manboqdv", {
+                        method: 'POST',
+                        body: formData,
+                        headers: { 'Accept': 'application/json' }
+                    }).then(response => {
+                        if (response.ok) {
+                            modalFormWrapper.classList.add('hidden');
+                            modalSuccessMessage.classList.remove('hidden');
+                        } else {
+                            modalFormWrapper.classList.add('hidden');
+                            modalErrorMessage.classList.remove('hidden');
+                        }
+                    }).catch(error => {
+                        modalFormWrapper.classList.add('hidden');
+                        modalErrorMessage.classList.remove('hidden');
+                    }).finally(() => {
+                        submitButton.disabled = false;
+                        submitButton.textContent = '견적 요청하기';
+                    });
+                });
+            }
             
             const header = document.getElementById('header');
             window.addEventListener('scroll', () => {
@@ -377,42 +463,6 @@
                         answer.style.maxHeight = answer.scrollHeight + "px";
                         icon.classList.add('rotate-180');
                     }
-                });
-            }
-
-            const form = document.getElementById('contact-form');
-            const formWrapper = document.getElementById('form-wrapper');
-            const successMessage = document.getElementById('success-message');
-            const errorMessage = document.getElementById('error-message');
-            
-            if (form) {
-                form.addEventListener('submit', function(event) {
-                    event.preventDefault();
-                    
-                    const formData = new FormData(form);
-                    const submitButton = form.querySelector('button[type="submit"]');
-                    submitButton.disabled = true;
-                    submitButton.textContent = '전송 중...';
-
-                    fetch("https://formspree.io/f/manboqdv", {
-                        method: 'POST',
-                        body: formData,
-                        headers: { 'Accept': 'application/json' }
-                    }).then(response => {
-                        if (response.ok) {
-                            formWrapper.classList.add('hidden');
-                            successMessage.classList.remove('hidden');
-                        } else {
-                            formWrapper.classList.add('hidden');
-                            errorMessage.classList.remove('hidden');
-                        }
-                    }).catch(error => {
-                        formWrapper.classList.add('hidden');
-                        errorMessage.classList.remove('hidden');
-                    }).finally(() => {
-                        submitButton.disabled = false;
-                        submitButton.textContent = '견적 요청하기';
-                    });
                 });
             }
         });

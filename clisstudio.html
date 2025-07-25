@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clips Studio | AI, 광고의 패러다임을 바꾸다</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <style>
+        body { font-family: 'Inter', 'Noto Sans KR', sans-serif; -ms-overflow-style: none; scrollbar-width: none; scroll-behavior: smooth;}
+        body::-webkit-scrollbar { display: none; }
+        .reveal { opacity: 0; transform: translateY(50px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
+        .reveal.visible { opacity: 1; transform: translateY(0); }
+        .cta-button { transition: all 0.3s ease; }
+        .cta-button:hover { transform: translateY(-2px); box-shadow: 0 4px 20px rgba(59, 130, 246, 0.4); }
+        .faq-question { cursor: pointer; }
+        .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.5s ease-in-out; }
+        .tab-content, .testimonial-slide { transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out; }
+        .process-step:not(:last-child):after {
+            content: '';
+            position: absolute;
+            top: 2rem;
+            right: -2rem; /* 데스크탑 화살표 위치 */
+            width: 4rem;
+            height: 2px;
+            background-image: linear-gradient(to right, #4b5563, #4b5563 50%, transparent 50%, transparent);
+            background-size: 10px 2px;
+            background-repeat: repeat-x;
+        }
+        @media (max-width: 1023px) {
+            .process-step:not(:last-child):after {
+                display: none; /* 태블릿, 모바일에서는 화살표 숨김 */
+            }
+        }
+        .gradient-text {
+            background: linear-gradient(90deg, #3b82f6, #ffffff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-fill-color: transparent;
+        }
+        /* Hero Slider Styles */
+        .hero-slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1.5s ease-in-out;
+            background-size: cover;
+            background-position: center;
+        }
+        .hero-slide.active {
+            opacity: 1;
+        }
+        .hero-slide video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .slider-dot {
+            width: 12px;
+            height: 12px;
+            background-color: rgba(255, 255, 255, 0.5);
+            border-radius: 50%;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .slider-dot.active {
+            background-color: white;
+        }
+    </style>
+</head>
+<body class="bg-black text-gray-300 antialiased">
+
+    <!-- Header & Navigation -->
+    <header id="header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-black/25 backdrop-blur-lg border-b border-gray-800">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#hero" class="text-2xl font-bold tracking-tighter gradient-text">Clips Studio</a>
+            <nav class="hidden md:flex space-x-8 text-gray-300 font-semibold">
+                <a href="#technology" class="hover:text-white transition-colors">Technology</a>
+                <a href="#process" class="hover:text-white transition-colors">Process</a>
+                <a href="#portfolio" class="hover:text-white transition-colors">Works</a>
+                <a href="#clients" class="hover:text-white transition-colors">Clients</a>
+            </nav>
+            <a href="#contact" class="hidden md:inline-block bg-blue-600 text-white px-5 py-2 rounded-lg font-semibold hover:bg-blue-700 cta-button">문의하기</a>
+            <button id="mobile-menu-button" class="md:hidden text-2xl text-white">☰</button>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden bg-black/95">
+            <a href="#technology" class="nav-link block text-center py-3 hover:bg-gray-800 transition-colors">Technology</a>
+            <a href="#process" class="nav-link block text-center py-3 hover:bg-gray-800 transition-colors">Process</a>
+            <a href="#portfolio" class="nav-link block text-center py-3 hover:bg-gray-800 transition-colors">Works</a>
+            <a href="#clients" class="nav-link block text-center py-3 hover:bg-gray-800 transition-colors">Clients</a>
+            <a href="#contact" class="nav-link block text-center py-4 bg-blue-600 text-white font-semibold">문의하기</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- 1. Hero Section with Slider Background -->
+        <section id="hero" class="h-screen flex items-center justify-center text-center px-4 relative overflow-hidden">
+            <!-- Slider Container -->
+            <div id="hero-slider" class="absolute top-0 left-0 w-full h-full">
+                <div class="hero-slide active" style="background-image: url('https://i.ibb.co/zWDdpYqd/Kakao-Talk-20250715-120030669.jpg');"></div>
+                <div class="hero-slide" style="background-image: url('https://cdn.midjourney.com/22c82e9d-0810-46c0-a6d5-2631f05441c8/0_0.png');"></div>
+                <div class="hero-slide" style="background-image: url('https://i.ibb.co/rGX6Z1rB/sucaehan-83416-httpss-mj-run-OXFqn-ACU43-I-A-cinematic-romantic-fa-01c0284e-d7c9-42a1-bf1c-8d44ce631.png');"></div>
+            </div>
+            <!-- Overlay for text readability -->
+            <div class="absolute top-0 left-0 w-full h-full bg-black/50"></div>
+            
+            <div class="z-10 relative">
+                <h1 class="text-4xl md:text-6xl font-black mb-4 leading-tight reveal text-white">
+                    <span class="gradient-text">AI가 만드는 광고,</span><br>결과로 증명합니다.
+                </h1>
+                <p class="text-lg md:text-xl max-w-3xl mx-auto text-gray-200 reveal" style="transition-delay: 0.2s;">
+                    Clips Studio는 AI 기술로 제작 비용과 기간을 90% 단축하고, 광고 효과는 극대화합니다.
+                </p>
+                <div class="mt-8 flex justify-center reveal" style="transition-delay: 0.4s;">
+                    <a href="#contact" class="bg-blue-600 text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-blue-700 cta-button">프로젝트 문의</a>
+                </div>
+            </div>
+             <!-- Slider Dots -->
+            <div id="slider-dots" class="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex space-x-3"></div>
+        </section>
+
+        <!-- Problem & Solution Section -->
+        <section class="py-20 md:py-32 bg-black">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-5xl font-bold reveal gradient-text">기존 광고의 한계, AI로 넘어서다</h2>
+                    <p class="mt-4 text-lg text-gray-400 max-w-3xl mx-auto reveal">높은 비용, 긴 제작 기간, 제한된 확산 효과. Clips Studio가 이 모든 문제를 해결합니다.</p>
+                </div>
+                <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+                    <div class="bg-gray-900 p-8 rounded-lg shadow-lg border border-gray-800 reveal">
+                        <h3 class="text-2xl font-bold mb-4 text-red-500">기존 광고 제작 방식</h3>
+                        <ul class="space-y-4 text-gray-400">
+                            <li class="flex items-start"><i class="fas fa-times-circle text-red-500 mr-3 mt-1"></i><div><strong class="text-gray-200">과도한 제작 비용:</strong> 평균 2~3천만원의 높은 비용 발생</div></li>
+                            <li class="flex items-start"><i class="fas fa-times-circle text-red-500 mr-3 mt-1"></i><div><strong class="text-gray-200">긴 제작 기간:</strong> 기획부터 편집까지 평균 60~90일 소요</div></li>
+                            <li class="flex items-start"><i class="fas fa-times-circle text-red-500 mr-3 mt-1"></i><div><strong class="text-gray-200">제한된 확산:</strong> 인플루언서 1차 노출에 그치는 광고 효과</div></li>
+                        </ul>
+                    </div>
+                    <div class="bg-blue-900/20 text-white p-8 rounded-lg shadow-lg border border-blue-800 reveal">
+                        <h3 class="text-2xl font-bold mb-4 text-blue-400">Clips Studio의 AI 솔루션</h3>
+                        <ul class="space-y-4">
+                            <li class="flex items-start"><i class="fas fa-check-circle text-blue-400 mr-3 mt-1"></i><div><strong>90% 비용 절감:</strong> AI 자동화로 300만원 대 제작 가능</div></li>
+                            <li class="flex items-start"><i class="fas fa-check-circle text-blue-400 mr-3 mt-1"></i><div><strong>90% 기간 단축:</strong> 단 7일 만에 트렌디한 광고 완성</div></li>
+                            <li class="flex items-start"><i class="fas fa-check-circle text-blue-400 mr-3 mt-1"></i><div><strong>무한한 확산:</strong> 시청자가 직접 참여하고 공유하는 바이럴 효과</div></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. Our Technology Section -->
+        <section id="technology" class="py-20 md:py-32 bg-gray-900">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-5xl font-bold reveal gradient-text">Our Technology</h2>
+                    <p class="mt-4 text-lg text-gray-400 max-w-2xl mx-auto reveal">Clips Studio는 독자적인 AI 기술로 광고의 새로운 패러다임을 제시합니다.</p>
+                </div>
+                <div class="mb-8 flex justify-center border-b border-gray-700 reveal">
+                    <button data-tab="ai-agent" class="tab-btn text-lg font-semibold py-4 px-6 border-b-2 border-blue-500 text-white">AI 에이전트</button>
+                    <button data-tab="ar-filter" class="tab-btn text-lg font-semibold py-4 px-6 text-gray-500 border-b-2 border-transparent hover:border-gray-600 hover:text-gray-300">AR 필터 광고</button>
+                </div>
+                <div id="tab-content-container">
+                    <div id="ai-agent-content" class="tab-content">
+                        <div class="text-center max-w-4xl mx-auto reveal">
+                            <i class="fas fa-cogs text-6xl text-blue-500 mb-6"></i>
+                            <h3 class="text-3xl font-bold mb-4 text-white">AI 에이전트: 올인원 비디오 솔루션</h3>
+                            <p class="text-lg text-gray-400">Clips Studio의 'AI 에이전트'는 단순한 아이디어 생성 도구가 아닙니다. 광고 기획, 카피라이팅, 이미지 및 사운드 생성부터 최종 영상 편집까지, 광고 제작의 모든 단계를 통합 관리하는 강력한 비디오 솔루션입니다. 물리적 촬영 없이도 고품질 3D 광고 비주얼을 구현하며, 화면 전환 시에도 모델의 일관성을 유지하는 등 기존 AI 영상의 한계를 극복한 독보적인 기술력을 자랑합니다.</p>
+                        </div>
+                    </div>
+                    <div id="ar-filter-content" class="tab-content hidden">
+                         <div class="text-center max-w-5xl mx-auto reveal">
+                            <h3 class="text-3xl font-bold mb-4 text-white">AR 필터 광고: 자발적 바이럴 확산</h3>
+                            <p class="text-lg text-gray-400 mb-12">AI가 제작한 광고 소스를 SNS에서 누구나 사용할 수 있는 AR 필터로 변환합니다. 인플루언서를 시작으로, 수많은 시청자들이 자신의 콘텐츠에 필터를 적용하고 공유하며 광고는 자연스럽게, 그리고 폭발적으로 확산됩니다.</p>
+                            <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+                                <div class="aspect-[9/16] bg-gray-800 rounded-2xl overflow-hidden shadow-lg"><video class="w-full h-full object-cover" src="https://static.videezy.com/system/resources/previews/000/004/002/original/Record_Player_-_4K_Stock_footage.mp4" autoplay loop muted playsinline></video></div>
+                                <div class="aspect-[9/16] bg-gray-800 rounded-2xl overflow-hidden shadow-lg"><video class="w-full h-full object-cover" src="https://static.videezy.com/system/resources/previews/000/043/403/original/stock_footage_4k_of_a_young_woman_dancing_in_a_city_street.mp4" autoplay loop muted playsinline></video></div>
+                                <div class="aspect-[9/16] bg-gray-800 rounded-2xl overflow-hidden shadow-lg"><video class="w-full h-full object-cover" src="https://static.videezy.com/system/resources/previews/000/041/143/original/4K_15.mp4" autoplay loop muted playsinline></video></div>
+                            </div>
+                         </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- AI Ad Creation Process Section -->
+        <section id="process" class="py-20 md:py-32 bg-black">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-5xl font-bold reveal gradient-text">AI 광고 제작 과정</h2>
+                    <p class="mt-4 text-lg text-gray-400 max-w-2xl mx-auto reveal">가장 효율적이고 투명한 AI 광고 제작 과정을 경험하세요.</p>
+                </div>
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-x-16 gap-y-12 text-center">
+                    <div class="reveal process-step relative"><i class="fas fa-lightbulb text-5xl text-blue-500 mb-4"></i><h3 class="text-xl font-bold mb-2 text-white">01. Briefing & Ideation</h3><p class="text-gray-400">클라이언트의 목표를 분석하고 AI와 함께 광고 콘셉트와 전략을 도출합니다.</p></div>
+                    <div class="reveal process-step relative"><i class="fas fa-cogs text-5xl text-blue-500 mb-4"></i><h3 class="text-xl font-bold mb-2 text-white">02. AI Production</h3><p class="text-gray-400">AI 에이전트가 아이디어를 바탕으로 영상, 이미지, 사운드를 자동으로 생성합니다.</p></div>
+                    <div class="reveal process-step relative"><i class="fas fa-check-double text-5xl text-blue-500 mb-4"></i><h3 class="text-xl font-bold mb-2 text-white">03. Review & Refine</h3><p class="text-gray-400">생성된 광고 시안을 확인하고, 클라이언트의 피드백을 반영하여 완성도를 높입니다.</p></div>
+                    <div class="reveal process-step relative"><i class="fas fa-rocket text-5xl text-blue-500 mb-4"></i><h3 class="text-xl font-bold mb-2 text-white">04. Delivery</h3><p class="text-gray-400">최종 완성된 고품질의 광고 영상을 클라이언트에게 전달합니다.</p></div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- AR Filter Ad Process Section -->
+        <section id="ar-process" class="pb-20 md:pb-32 bg-black">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-5xl font-bold reveal gradient-text">AR 필터 광고 확산 과정</h2>
+                    <p class="mt-4 text-lg text-gray-400 max-w-2xl mx-auto reveal">단순 광고를 넘어, 소비자가 직접 참여하고 확산시키는 바이럴 캠페인.</p>
+                </div>
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-x-16 gap-y-12 text-center">
+                    <div class="reveal process-step relative"><i class="fas fa-magic text-5xl text-purple-500 mb-4"></i><h3 class="text-xl font-bold mb-2 text-white">01. AR 필터 변환</h3><p class="text-gray-400">AI로 제작된 광고 소스를 SNS 플랫폼에 최적화된 AR 필터로 제작합니다.</p></div>
+                    <div class="reveal process-step relative"><i class="fas fa-upload text-5xl text-purple-500 mb-4"></i><h3 class="text-xl font-bold mb-2 text-white">02. 인플루언서 활용</h3><p class="text-gray-400">협업 인플루언서가 AR 필터를 활용한 콘텐츠를 제작하여 1차 확산을 유도합니다.</p></div>
+                    <div class="reveal process-step relative"><i class="fas fa-users text-5xl text-purple-500 mb-4"></i><h3 class="text-xl font-bold mb-2 text-white">03. 시청자 참여</h3><p class="text-gray-400">시청자들이 '효과' 버튼을 눌러 자신의 콘텐츠에 필터를 직접 사용합니다.</p></div>
+                    <div class="reveal process-step relative"><i class="fas fa-share-alt text-5xl text-purple-500 mb-4"></i><h3 class="text-xl font-bold mb-2 text-white">04. 바이럴 확산</h3><p class="text-gray-400">사용자들이 필터를 적용한 콘텐츠를 공유하며 자발적인 2차, 3차 확산이 일어납니다.</p></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Works Section -->
+        <section id="portfolio" class="py-20 md:py-32 bg-gray-900">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-5xl font-bold reveal gradient-text">Works</h2>
+                    <p class="mt-4 text-lg text-gray-400 max-w-2xl mx-auto reveal">AI 기술로 완성된 프로젝트 예시를 확인해보세요.</p>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-8 max-w-5xl mx-auto reveal">
+                    <div class="aspect-w-16 aspect-h-9 rounded-lg overflow-hidden shadow-lg">
+                        <video class="w-full h-full object-cover" src="https://cdn.midjourney.com/video/06bebd62-1ca9-4164-a08f-0b9e461dc168/2.mp4" autoplay loop muted playsinline></video>
+                    </div>
+                    <div class="aspect-w-16 aspect-h-9 rounded-lg overflow-hidden shadow-lg">
+                        <video class="w-full h-full object-cover" src="https://cdn.midjourney.com/video/fd96cf19-17e9-4db4-be8c-d2fd82303202/1.mp4" autoplay loop muted playsinline></video>
+                    </div>
+                    <div class="aspect-w-16 aspect-h-9 rounded-lg overflow-hidden shadow-lg">
+                        <video class="w-full h-full object-cover" src="https://cdn.midjourney.com/video/538b6539-0abc-424f-8255-6349285efa33/2.mp4" autoplay loop muted playsinline></video>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. Clients & Testimonials Section -->
+        <section id="clients" class="py-20 md:py-32 bg-black">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold reveal gradient-text">Testimonials</h2>
+                </div>
+                <div class="max-w-4xl mx-auto space-y-16 reveal">
+                    <!-- Testimonial 1 -->
+                    <div class="flex flex-col sm:flex-row items-center gap-8">
+                        <img src="https://placehold.co/150x150/1f2937/d1d5db?text=CEO" alt="스타트업 대표" class="w-24 h-24 rounded-full flex-shrink-0">
+                        <div class="bg-gray-900 border border-gray-800 p-6 rounded-lg relative w-full">
+                            <p class="text-gray-300">"회사가 아직 작아 필요한 작업마다 외주를 맡기곤 했는데, Clips Studio 덕분에 작업의 일관성을 유지하며 통합 관리가 가능해졌습니다. 광고 캠페인과 콘텐츠 운영이 더 체계적이고 효과적으로 진행되었어요."</p>
+                            <p class="text-right mt-4 font-bold text-white">- 스타트업 대표 (남, 32세)</p>
+                        </div>
+                    </div>
+                    <!-- Testimonial 2 -->
+                    <div class="flex flex-col sm:flex-row-reverse items-center gap-8">
+                         <img src="https://placehold.co/150x150/1f2937/d1d5db?text=SNS" alt="SNS 운영 담당자" class="w-24 h-24 rounded-full flex-shrink-0">
+                        <div class="bg-gray-900 border border-gray-800 p-6 rounded-lg relative w-full">
+                            <p class="text-gray-300">"AI 콘텐츠 제작 서비스를 통해 필요한 콘텐츠를 빠르게 얻을 수 있어 SNS 운영이 훨씬 간편해졌고, 팔로워와의 소통도 원활하게 이루어졌습니다."</p>
+                            <p class="text-right mt-4 font-bold text-white">- SNS 운영 담당자 (여, 29세)</p>
+                        </div>
+                    </div>
+                    <!-- Testimonial 3 -->
+                     <div class="flex flex-col sm:flex-row items-center gap-8">
+                        <img src="https://placehold.co/150x150/1f2937/d1d5db?text=CMO" alt="마케터" class="w-24 h-24 rounded-full flex-shrink-0">
+                        <div class="bg-gray-900 border border-gray-800 p-6 rounded-lg relative w-full">
+                            <p class="text-gray-300">"매번 광고 콘텐츠 제작에 시간이 너무 많이 들었는데, AI를 이용한 서비스 덕분에 그 시간이 절반으로 줄었어요. 광고 캠페인의 효율이 극대화되었고, 전반적인 ROI가 증가하는 결과를 얻었습니다. 무엇보다 변화하는 트렌드에 맞춰 즉각적으로 콘텐츠를 수정할 수 있어서 좋았어요."</p>
+                            <p class="text-right mt-4 font-bold text-white">- 마케터 (남, 40세)</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. Contact & FAQ Section -->
+        <section id="contact" class="py-20 md:py-32 bg-black">
+            <div class="container mx-auto px-6">
+                <div class="max-w-4xl mx-auto">
+                    <!-- Quote Request Form -->
+                    <div class="reveal mb-24">
+                        <div class="text-center mb-12">
+                            <h2 class="text-3xl md:text-5xl font-bold text-white">Contact</h2>
+                            <p class="mt-4 text-lg text-gray-400">견적 요청 또는 궁금한 점을 남겨주세요.</p>
+                        </div>
+                        <form id="contactForm" class="max-w-2xl mx-auto">
+                            <div class="grid md:grid-cols-2 gap-6 mb-6">
+                                <input type="text" id="contact-name" placeholder="성함" class="w-full bg-gray-900 p-3 rounded-lg border border-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                <input type="email" id="contact-email" placeholder="이메일" class="w-full bg-gray-900 p-3 rounded-lg border border-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            </div>
+                            <div class="grid md:grid-cols-2 gap-6 mb-6">
+                                <input type="text" id="contact-company" placeholder="회사명" class="w-full bg-gray-900 p-3 rounded-lg border border-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                <input type="tel" id="contact-phone" placeholder="연락처" class="w-full bg-gray-900 p-3 rounded-lg border border-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            </div>
+                            <div class="mb-6"><textarea id="contact-message" placeholder="프로젝트 내용" rows="5" class="w-full bg-gray-900 p-3 rounded-lg border border-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea></div>
+                            <div class="text-center"><button type="button" id="submit-quote" class="w-full md:w-auto bg-blue-600 text-white px-12 py-4 rounded-lg font-bold text-lg hover:bg-blue-700 cta-button">견적 요청하기</button></div>
+                        </form>
+                    </div>
+                    <!-- FAQ -->
+                    <div class="reveal">
+                        <div class="text-center mb-12">
+                            <h3 class="text-3xl md:text-4xl font-bold text-white">자주 묻는 질문</h3>
+                        </div>
+                        <div id="faq-container" class="space-y-4 max-w-2xl mx-auto">
+                            <div class="border-b border-gray-800 pb-4"><div class="faq-question flex justify-between items-center"><h3 class="font-semibold text-lg text-gray-200">AI가 광고를 만든다니, 정확히 어떤 원리인가요?</h3><i class="fas fa-chevron-down transition-transform text-gray-400"></i></div><div class="faq-answer pt-4 text-gray-400"><p>저희 'AI 에이전트'는 하나의 AI가 아닌, 광고 기획, 카피, 이미지, 영상, 사운드 등 각 분야에 특화된 여러 AI를 통합한 시스템입니다. 클라이언트의 요구사항을 입력하면, 각 AI가 유기적으로 작동하여 최적의 광고 결과물을 자동으로 생성합니다. 7,000개 이상의 데이터를 학습한 딥러닝 모델이 퀄리티를 보장합니다.</p></div></div>
+                            <div class="border-b border-gray-800 pb-4"><div class="faq-question flex justify-between items-center"><h3 class="font-semibold text-lg text-gray-200">제작 비용과 기간이 정말 90%나 단축되나요?</h3><i class="fas fa-chevron-down transition-transform text-gray-400"></i></div><div class="faq-answer pt-4 text-gray-400"><p>네, 가능합니다. 촬영 장비, 모델, 스튜디오 렌탈 등 물리적인 촬영 과정이 필요 없으며, 기획과 편집 과정 대부분이 자동화되기 때문입니다. 이를 통해 평균 60~90일, 수천만 원이 소요되던 광고를 단 7일, 300만 원대의 비용으로 제작할 수 있습니다.</p></div></div>
+                            <div class="border-b border-gray-800 pb-4"><div class="faq-question flex justify-between items-center"><h3 class="font-semibold text-lg text-gray-200">AI가 만든 광고, 퀄리티가 떨어지진 않을까요?</h3><i class="fas fa-chevron-down transition-transform text-gray-400"></i></div><div class="faq-answer pt-4 text-gray-400"><p>걱정하지 않으셔도 됩니다. 저희 팀은 국내 최고 IT 기업의 AI 영상 제작팀 출신 전문가들로 구성되어 있습니다. 최고 수준의 AI 모델만을 사용하며, 전문가가 직접 평가한 데이터를 기반으로 AI를 학습시켜 브랜드에 적합하면서도 창의적인 고품질 광고를 제작합니다.</p></div></div>
+                            <div class="border-b border-gray-800 pb-4"><div class="faq-question flex justify-between items-center"><h3 class="font-semibold text-lg text-gray-200">'AR 필터 광고'는 어떻게 광고 효과를 높이나요?</h3><i class="fas fa-chevron-down transition-transform text-gray-400"></i></div><div class="faq-answer pt-4 text-gray-400"><p>AR 필터 광고는 시청자가 광고를 수동적으로 보기만 하는 것을 넘어, 자신의 SNS 콘텐츠에 직접 사용하며 즐기는 '참여형' 광고입니다. 사용자들이 자발적으로 브랜드를 홍보하는 홍보대사가 되어, 광고가 2차, 3차로 확산되는 강력한 바이럴 효과를 만들어냅니다.</p></div></div>
+                            <div class="border-b border-gray-800 pb-4"><div class="faq-question flex justify-between items-center"><h3 class="font-semibold text-lg text-gray-200">저희 브랜드에 딱 맞는 맞춤형 광고 제작이 가능한가요?</h3><i class="fas fa-chevron-down transition-transform text-gray-400"></i></div><div class="faq-answer pt-4 text-gray-400"><p>물론입니다. 저희는 클라이언트의 브랜드 가이드, 타겟 고객, 캠페인 목표를 기반으로 AI를 세밀하게 조정합니다. K-푸드, 뷰티, 게임 등 다양한 산업 분야의 데이터를 학습했기 때문에, 어떤 업종이든 최적화된 맞춤 광고를 제작할 수 있습니다.</p></div></div>
+                            <div class="border-b border-gray-800 pb-4"><div class="faq-question flex justify-between items-center"><h3 class="font-semibold text-lg text-gray-200">기존에 촬영해 둔 영상 소스도 활용할 수 있나요?</h3><i class="fas fa-chevron-down transition-transform text-gray-400"></i></div><div class="faq-answer pt-4 text-gray-400"><p>네, 매우 효율적으로 활용할 수 있습니다. 기존 영상을 AI로 분석하여 트렌드에 맞게 재편집하거나, AR 기술로 가상 제품(PPL)을 삽입하여 완전히 새로운 광고로 재탄생시킬 수 있습니다. 보유하신 자산의 가치를 극대화해 드립니다.</p></div></div>
+                            <div class="border-b border-gray-800 pb-4"><div class="faq-question flex justify-between items-center"><h3 class="font-semibold text-lg text-gray-200">어떤 종류의 광고를 주로 제작하시나요?</h3><i class="fas fa-chevron-down transition-transform text-gray-400"></i></div><div class="faq-answer pt-4 text-gray-400"><p>저희는 브랜드의 철학을 담은 '브랜드 필름'부터 SNS를 위한 짧고 강렬한 '바이럴 영상', 제품의 특징을 보여주는 '제품 광고', 그리고 저희만의 독보적인 'AR 필터 캠페인'까지, AI 기술을 활용한 모든 형태의 영상 광고 제작이 가능합니다.</p></div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-black border-t border-gray-800">
+        <div class="container mx-auto px-6 py-8 text-center text-gray-500">
+            <p>&copy; 2025 Clips Studio. All Rights Reserved.</p>
+            <p class="text-sm mt-2">AI-Powered Creative Agency</p>
+        </div>
+    </footer>
+
+    <!-- Instagram Embed Script -->
+    <script async src="//www.instagram.com/embed.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // --- Header & Nav Logic ---
+            const header = document.getElementById('header');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) header.classList.add('shadow-md');
+                else header.classList.remove('shadow-md');
+            });
+
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const navLinks = document.querySelectorAll('.nav-link');
+            mobileMenuButton.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+            navLinks.forEach(link => link.addEventListener('click', () => mobileMenu.classList.add('hidden')));
+
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
+                });
+            });
+
+            // --- Reveal on Scroll ---
+            const revealElements = document.querySelectorAll('.reveal');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) entry.target.classList.add('visible');
+                });
+            }, { threshold: 0.1 });
+            revealElements.forEach(el => observer.observe(el));
+
+            // --- Hero Slider ---
+            const slides = document.querySelectorAll('.hero-slide');
+            const dotsContainer = document.getElementById('slider-dots');
+            let currentSlide = 0;
+            let slideInterval;
+
+            function createDots() {
+                if (!dotsContainer) return;
+                slides.forEach((_, i) => {
+                    const dot = document.createElement('div');
+                    dot.classList.add('slider-dot');
+                    dot.addEventListener('click', () => {
+                        goToSlide(i);
+                        resetInterval();
+                    });
+                    dotsContainer.appendChild(dot);
+                });
+            }
+
+            function goToSlide(n) {
+                if (slides.length === 0) return;
+                slides[currentSlide].classList.remove('active');
+                if (dotsContainer) dotsContainer.children[currentSlide].classList.remove('active');
+                currentSlide = (n + slides.length) % slides.length;
+                slides[currentSlide].classList.add('active');
+                if (dotsContainer) dotsContainer.children[currentSlide].classList.add('active');
+            }
+
+            function nextSlide() {
+                goToSlide(currentSlide + 1);
+            }
+
+            function resetInterval() {
+                clearInterval(slideInterval);
+                slideInterval = setInterval(nextSlide, 5000); // Change slide every 5 seconds
+            }
+
+            createDots();
+            goToSlide(0);
+            resetInterval();
+
+            // --- Technology Tab ---
+            const tabButtons = document.querySelectorAll('.tab-btn');
+            const tabContents = document.querySelectorAll('.tab-content');
+            tabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const tabId = button.dataset.tab;
+
+                    tabButtons.forEach(btn => {
+                        btn.classList.remove('text-white', 'border-blue-500');
+                        btn.classList.add('text-gray-500', 'border-transparent');
+                    });
+                    button.classList.add('text-white', 'border-blue-500');
+                    button.classList.remove('text-gray-500', 'border-transparent');
+
+                    tabContents.forEach(content => {
+                        if (content.id === `${tabId}-content`) {
+                            content.classList.remove('hidden');
+                        } else {
+                            content.classList.add('hidden');
+                        }
+                    });
+                });
+            });
+
+            // --- Works Slider ---
+            const worksSlider = document.getElementById('works-slider');
+            const prevWorkBtn = document.getElementById('prev-work');
+            const nextWorkBtn = document.getElementById('next-work');
+            let currentWorkIndex = 0;
+
+            function updateWorksSlider() {
+                if (!worksSlider) return;
+                const slideWidth = worksSlider.children[0].clientWidth;
+                worksSlider.style.transform = `translateX(-${currentWorkIndex * slideWidth}px)`;
+            }
+
+            if (prevWorkBtn && nextWorkBtn && worksSlider) {
+                const workSlides = worksSlider.children;
+                const totalWorkSlides = workSlides.length;
+
+                nextWorkBtn.addEventListener('click', () => {
+                    currentWorkIndex = (currentWorkIndex + 1) % totalWorkSlides;
+                    updateWorksSlider();
+                });
+
+                prevWorkBtn.addEventListener('click', () => {
+                    currentWorkIndex = (currentWorkIndex - 1 + totalWorkSlides) % totalWorkSlides;
+                    updateWorksSlider();
+                });
+                
+                window.addEventListener('resize', updateWorksSlider);
+            }
+            
+            // --- Testimonial Slider ---
+            const testimonials = document.querySelectorAll('.testimonial-slide');
+            const prevBtn = document.getElementById('prev-testimonial');
+            const nextBtn = document.getElementById('next-testimonial');
+            let currentTestimonial = 0;
+
+            function showTestimonial(index) {
+                testimonials.forEach((slide, i) => {
+                    if (i === index) {
+                        slide.classList.remove('hidden');
+                    } else {
+                        slide.classList.add('hidden');
+                    }
+                });
+            }
+
+            if(prevBtn && nextBtn) {
+                prevBtn.addEventListener('click', () => {
+                    currentTestimonial = (currentTestimonial - 1 + testimonials.length) % testimonials.length;
+                    showTestimonial(currentTestimonial);
+                });
+
+                nextBtn.addEventListener('click', () => {
+                    currentTestimonial = (currentTestimonial + 1) % testimonials.length;
+                    showTestimonial(currentTestimonial);
+                });
+            }
+
+
+            // --- FAQ Accordion ---
+            const faqContainer = document.getElementById('faq-container');
+            if(faqContainer) {
+                faqContainer.addEventListener('click', (e) => {
+                    const question = e.target.closest('.faq-question');
+                    if (!question) return;
+                    const answer = question.nextElementSibling;
+                    const icon = question.querySelector('i');
+                    const isOpening = !answer.style.maxHeight;
+                    
+                    faqContainer.querySelectorAll('.faq-answer').forEach(ans => {
+                        ans.style.maxHeight = null;
+                        ans.previousElementSibling.querySelector('i').classList.remove('rotate-180');
+                    });
+
+                    if (isOpening) {
+                        answer.style.maxHeight = answer.scrollHeight + "px";
+                        icon.classList.add('rotate-180');
+                    }
+                });
+            }
+
+            // --- Contact Form Submission ---
+            const submitButton = document.getElementById('submit-quote');
+            if (submitButton) {
+                submitButton.addEventListener('click', function(event) {
+                    event.preventDefault(); // Prevent default form submission
+
+                    const name = document.getElementById('contact-name').value;
+                    const email = document.getElementById('contact-email').value;
+                    const company = document.getElementById('contact-company').value;
+                    const phone = document.getElementById('contact-phone').value;
+                    const message = document.getElementById('contact-message').value;
+
+                    if (!name || !email || !message) {
+                        // A more user-friendly notification could be used here instead of alert
+                        alert('성함, 이메일, 프로젝트 내용은 필수 입력 항목입니다.');
+                        return;
+                    }
+
+                    const subject = encodeURIComponent(`[Clips Studio] ${company || name} 님의 견적 요청`);
+                    const body = encodeURIComponent(
+                        `성함: ${name}\n` +
+                        `이메일: ${email}\n` +
+                        `회사명: ${company || 'N/A'}\n` +
+                        `연락처: ${phone || 'N/A'}\n\n` +
+                        `프로젝트 내용:\n${message}`
+                    );
+
+                    window.location.href = `mailto:suchaehan@gmail.com?subject=${subject}&body=${body}`;
+                });
+            }
+        });
+    </script>
+</body>
+</html>
